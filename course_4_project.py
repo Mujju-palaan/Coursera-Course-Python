@@ -42,10 +42,11 @@ class WOFComputerPlayer(WOFPlayer):
         list = []
         if self.prizemoney >= 250: 
             for l in LETTERS:
-                list.append(l)
+                if l not in guessed:
+                    list.append(l)
         else:
             for l in LETTERS:
-                if l not in VOWELS:
+                if l not in VOWELS and l not in guessed:
                     list.append(l)
         return list
 
